@@ -821,6 +821,8 @@ func (db *postgres) SqlType(c *core.Column) string {
 		return core.Bytea
 	case core.Double:
 		return "DOUBLE PRECISION"
+	case core.Json:
+	    res = core.Text
 	default:
 		if c.IsAutoIncrement {
 			return core.Serial
