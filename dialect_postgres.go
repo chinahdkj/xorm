@@ -810,7 +810,7 @@ func (db *postgres) SqlType(c *core.Column) string {
 	case core.TimeStampz:
 		return "timestamp with time zone"
 	case core.Float:
-		res = core.Real
+		res = core.Numeric
 	case core.TinyText, core.MediumText, core.LongText:
 		res = core.Text
 	case core.NVarchar:
@@ -822,7 +822,7 @@ func (db *postgres) SqlType(c *core.Column) string {
 	case core.Double:
 		return "DOUBLE PRECISION"
 	case core.Json:
-	    res = core.Text
+	        return core.Text
 	default:
 		if c.IsAutoIncrement {
 			return core.Serial
